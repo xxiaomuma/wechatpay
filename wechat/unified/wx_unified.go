@@ -23,7 +23,7 @@ const (
 type WxUnified interface {
 	JsApiPayV3(param WxUnifiedParam) (map[string]string, error)
 	NativePayV3(param WxUnifiedParam) (string, error)
-	H5PayV3(param WxUnifiedParam)
+	H5PayV3(param WxUnifiedParam) (string, error)
 }
 
 type WxUnifiedContext struct {
