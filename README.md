@@ -1,11 +1,13 @@
 # wechatpay
 微信支付sdk for go 当前仅支持V3直连商户, 持续更新 </br>
  - 如果在集成过程中遇到问题, 请联系: 2521901773@qq.com
- 安装
-    go get -u github.com/xxiaomuma/wechatpay
+ - 安装
+    ```go
+     go get -u github.com/xxiaomuma/wechatpay
+   ```
 微信支付
  - 基础配置
-   ```
+   ```go
         pay := NewPay(&config.Config{
              Wx: &config.WxConfig{
                    AppId:               "xxx", // 微信APPID
@@ -21,31 +23,31 @@
    ```
    - pay使用全局变量
  - 统一下单
-   ```
+   ```go
          param := unified.WxUnifiedParam {
 		             OutTradeNo:  "xxxx",
 		             NotifyUrl:   "xxx",
 		             Description: "测试",
-	         }
-	         param.SetPayerOpenId("xxx")
-	         param.SetCNYPayAmount(1)
-	         result, err := pay.GetWxPay().GetUnified().JsApiPayV3(param)
+         }
+         param.SetPayerOpenId("xxx")
+         param.SetCNYPayAmount(1)
+         result, err := pay.GetWxPay().GetUnified().JsApiPayV3(param)
    ```
    - 这里使用的是jsapi统一下单，GetUnified下提供APP, JSAPI, H5, NATIVE
-    ```
+    ```go
         param := unified.WxUnifiedParam{
 		            OutTradeNo:  "xxx",
 		            NotifyUrl:   "xxx",
 		            Description: "测试",
-	       }
-	       param.SetCNYPayAmount(1)
-	       result, err := pay.GetWxPay().GetUnified().NativePayV3(param)
+        }
+        param.SetCNYPayAmount(1)
+        result, err := pay.GetWxPay().GetUnified().NativePayV3(param)
     ```
 - 查询 </br>
+    ```go
+    GetWxPay().GetQuery()
     ```
-  GetWxPay().GetQuery()
-  ```
 - 退款
-    ```
-    GetWxPay.GetRefund()
+    ```go
+     GetWxPay.GetRefund()
      ```
